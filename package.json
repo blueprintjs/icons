@@ -57,8 +57,6 @@
         }
     },
     "devDependencies": {
-        "blueprintjs-node-build-scripts": "workspace:^",
-        "blueprintjs-test-commons": "workspace:^",
         "@twbs/fantasticon": "^2.7.1",
         "@types/handlebars": "^4.1.0",
         "enzyme": "^3.11.0",
@@ -71,11 +69,6 @@
         "svg-parser": "^2.0.4",
         "typescript": "~5.2.2",
         "webpack-cli": "^5.1.4"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:palantir/blueprint.git",
-        "directory": "packages/icons"
     },
     "keywords": [
         "palantir",
