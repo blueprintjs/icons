@@ -10,7 +10,7 @@ approaches.
 
 <div class="@ns-callout @ns-intent-primary @ns-icon-info-sign">
 
-See the [**`Icon` component documentation**](#core/components/icon) (in the `@blueprintjs/core` package) for React API details.
+See the [**`Icon` component documentation**](#core/components/icon) (in the `blueprintjs-core` package) for React API details.
 
 </div>
 
@@ -20,8 +20,8 @@ Blueprint's icon prop APIs accept a JSX element. When you use this type, you are
 from the icons package.
 
 ```tsx
-import { Button } from "@blueprintjs/core";
-import { Download } from "@blueprintjs/icons";
+import { Button } from "blueprintjs-core";
+import { Download } from "blueprintjs-icons";
 import * as ReactDOM from "react-dom";
 
 ReactDOM.render(
@@ -46,7 +46,7 @@ Blueprint's icon props APIs _also_ accept a type-safe icon name string literal. 
 It looks like this in your render code path:
 
 ```tsx
-import { Button } from "@blueprintjs/core";
+import { Button } from "blueprintjs-core";
 import * as ReactDOM from "react-dom";
 
 ReactDOM.render(
@@ -72,7 +72,7 @@ importing icon modules for you**.  Let's take a look at this required configurat
 2. Load all icons into a single chunk (do not split by size)
 
     ```ts
-    import { Icons } from "@blueprintjs/icons";
+    import { Icons } from "blueprintjs-icons";
 
     Icons.setLoaderOptions({ loader: "all" });
 
@@ -85,7 +85,7 @@ importing icon modules for you**.  Let's take a look at this required configurat
     This results in the largest bundle size for your main chunk.
 
     ```ts
-    import { Icons, IconSize, IconPathsLoader } from "@blueprintjs/icons";
+    import { Icons, IconSize, IconPathsLoader } from "blueprintjs-icons";
 
     const eagerLoader: IconPathsLoader = async (name, size) => {
         return (
@@ -94,13 +94,13 @@ importing icon modules for you**.  Let's take a look at this required configurat
                     /* webpackChunkName: "blueprint-icons" */
                     /* webpackInclude: /\.js$/ */
                     /* webpackMode: "eager" */
-                    `@blueprintjs/icons/lib/esm/generated/16px/paths/${name}`
+                    `blueprintjs-icons/lib/esm/generated/16px/paths/${name}`
                 )
                 : await import(
                     /* webpackChunkName: "blueprint-icons" */
                     /* webpackInclude: /\.js$/ */
                     /* webpackMode: "eager" */
-                    `@blueprintjs/icons/lib/esm/generated/20px/paths/${name}`
+                    `blueprintjs-icons/lib/esm/generated/20px/paths/${name}`
                 )
         ).default;
     };
@@ -113,7 +113,7 @@ importing icon modules for you**.  Let's take a look at this required configurat
     Any usage of `<Icon icon="..." />` will trigger a network request to fetch the individual icon contents chunk.
 
     ```ts
-    import { Icons, IconSize, IconPathsLoader } from "@blueprintjs/icons";
+    import { Icons, IconSize, IconPathsLoader } from "blueprintjs-icons";
 
     const lazyLoader: IconPathsLoader = async (name, size) => {
         return (
@@ -122,13 +122,13 @@ importing icon modules for you**.  Let's take a look at this required configurat
                     /* webpackChunkName: "blueprint-icons-16px" */
                     /* webpackInclude: /\.js$/ */
                     /* webpackMode: "lazy" */
-                    `@blueprintjs/icons/lib/esm/generated/16px/paths/${name}`
+                    `blueprintjs-icons/lib/esm/generated/16px/paths/${name}`
                 )
                 : await import(
                     /* webpackChunkName: "blueprint-icons-20px" */
                     /* webpackInclude: /\.js$/ */
                     /* webpackMode: "lazy" */
-                    `@blueprintjs/icons/lib/esm/generated/20px/paths/${name}`
+                    `blueprintjs-icons/lib/esm/generated/20px/paths/${name}`
                 )
         ).default;
     };
@@ -139,7 +139,7 @@ importing icon modules for you**.  Let's take a look at this required configurat
 4. Load some icon paths up front (dynamically) with network requests, and the rest lazily/on-demand.
 
     ```ts
-    import { Icons } from "@blueprintjs/icons";
+    import { Icons } from "blueprintjs-icons";
 
     Icons.setLoaderOptions({ loader: lazyLoader });
     await Icons.load(["download", "caret-down", "endorsed", "help", "lock"]);
@@ -148,13 +148,13 @@ importing icon modules for you**.  Let's take a look at this required configurat
 5. Use a custom loaders with other bundlers, for example Vite ([see demo Code Sandbox here](https://codesandbox.io/p/sandbox/blueprint-v5-x-sandbox-react-16-wy0ojy)).
 
     ```ts
-    import { Icons, IconPaths } from "@blueprintjs/icons";
+    import { Icons, IconPaths } from "blueprintjs-icons";
 
     // see https://vitejs.dev/guide/features.html#glob-import
     const iconModules: Record<string, { default: IconPaths }> = import.meta.glob(
         [
-            "../node_modules/@blueprintjs/icons/lib/esm/generated/16px/paths/*.js",
-            "../node_modules/@blueprintjs/icons/lib/esm/generated/20px/paths/*.js",
+            "../node_modules/blueprintjs-icons/lib/esm/generated/16px/paths/*.js",
+            "../node_modules/blueprintjs-icons/lib/esm/generated/20px/paths/*.js",
         ],
         { eager: true },
     );
@@ -162,7 +162,7 @@ importing icon modules for you**.  Let's take a look at this required configurat
     Icons.setLoaderOptions({
         loader: async (name, size) => (
             iconModules[
-                `../node_modules/@blueprintjs/icons/lib/esm/generated/${size}px/paths/${name}.js`
+                `../node_modules/blueprintjs-icons/lib/esm/generated/${size}px/paths/${name}.js`
             ].default,
         ),
     });

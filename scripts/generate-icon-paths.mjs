@@ -25,7 +25,7 @@ import { pascalCase } from "change-case";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { svgOptimizer } from "@blueprintjs/node-build-scripts";
+import { svgOptimizer } from "blueprintjs-node-build-scripts";
 
 import { ICON_SIZES, iconResourcesDir, iconsMetadata, writeLinesToFile } from "./common.mjs";
 const ICON_NAMES = iconsMetadata.map(icon => icon.iconName);

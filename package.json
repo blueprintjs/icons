@@ -1,5 +1,5 @@
 {
-    "name": "@blueprintjs/icons",
+    "name": "blueprintjs-icons",
     "version": "5.5.0",
     "description": "Components, fonts, icons, and css files for creating and displaying icons.",
     "main": "lib/cjs/generated/index.js",
@@ -57,8 +57,8 @@
         }
     },
     "devDependencies": {
-        "@blueprintjs/node-build-scripts": "workspace:^",
-        "@blueprintjs/test-commons": "workspace:^",
+        "blueprintjs-node-build-scripts": "workspace:^",
+        "blueprintjs-test-commons": "workspace:^",
         "@twbs/fantasticon": "^2.7.1",
         "@types/handlebars": "^4.1.0",
         "enzyme": "^3.11.0",

@@ -9,7 +9,7 @@ This package contains a collection of React components and other files for displ
 ## Installation
 
 ```
-npm install --save @blueprintjs/icons
+npm install --save blueprintjs-icons
 ```
 
 ### [Full Documentation](http://blueprintjs.com/docs) | [Source Code](https://github.com/palantir/blueprint)
